@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    {{> header }}
+
+</head>
+
+<body data-layout="detached" data-topbar="colored">
+
+
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+    <div class="container-fluid">
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            {{> topbar}}
+            <!-- ========== Left Sidebar Start ========== -->
+            {{> sidebar}}
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                {{#ifEquals data.curent_pages "dashboard"}}
+                {{> dashboard/dashboard}}
+                {{/ifEquals}}
+                <!-- End Page-content -->
+
+                {{> footer_element}}
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+    </div>
+    <!-- end container-fluid -->
+
+    {{> footer}}
+
+</body>
+
+</html>
