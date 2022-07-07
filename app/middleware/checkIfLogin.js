@@ -20,7 +20,7 @@ exports.checkIfLogin = async (req, res, next) => {
 
 async function getDataToken(token) {
 	return new Promise(async (resolve, reject) => {
-		jwt.verify(token, config.JWTSecret, function (err, decoded) {
+		jwt.verify(token, config.jwtSecret, function (err, decoded) {
 			if (err) {
 				reject(err.message);
 			} else {
@@ -39,6 +39,7 @@ exports.checkToken = async (req, res, next) => {
 	} else {
 		getDataToken(session.tokenAdmin)
 			.then((data) => {
+				session.data = data;
 				next();
 			})
 			.catch((err) => {

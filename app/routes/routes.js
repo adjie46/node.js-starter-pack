@@ -15,6 +15,8 @@ route.get("/login", authMiddleware.checkIfLogin, (req, res) => {
 
 route.post("/login", authController.authLogin);
 
+route.post("/logout", authController.authLogout);
+
 route.get("/401", function (req, res) {
 	return res.render("../view/401.hbs", {});
 });

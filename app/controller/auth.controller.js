@@ -96,3 +96,9 @@ exports.authLogin = async (req, res, next) => {
 		}
 	}
 };
+
+exports.authLogout = async (req, res) => {
+	req.session.destroy((err) => {
+		res.redirect("/login");
+	});
+};

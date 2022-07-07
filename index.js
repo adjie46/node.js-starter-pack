@@ -58,6 +58,13 @@ hbs.registerHelper("ifNotEquals", function (arg1, arg2, options) {
 	return arg1 != arg2 ? options.fn(this) : options.inverse(this);
 });
 
+hbs.registerHelper("ifAnd", function (v1, v2, options) {
+	if (v1 === v2) {
+		return options.fn(this);
+	}
+	return options.inverse(this);
+});
+
 hbs.registerHelper("inc", function (value, options) {
 	return parseInt(value) + 1;
 });

@@ -59,7 +59,7 @@
                                     <img src="assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs"
                                         alt="user-pic">
                                     <div class="flex-1">
-                                        <h6 class="mt-0 mb-1">James Lemire</h6>
+                                        <h6 class="mt-0 mb-1">{{data.current_login.adminName}}</h6>
                                         <div class="font-size-12 text-muted">
                                             <p class="mb-1">It will seem like simplified English.</p>
                                             <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours
@@ -113,25 +113,25 @@
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-2.jpg"
+                        <img class="rounded-circle header-profile-user" src="assets/images/users/default-avatar.png"
                             alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1">Patrick</span>
+                        <span class="d-none d-xl-inline-block ms-1">{{data.current_login.admiName}}</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
                         <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i>
                             Profile</a>
-                        <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> My
-                            Wallet</a>
-                        <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i
-                                class="bx bx-wrench font-size-16 align-middle me-1"></i> Settings</a>
-                        <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i>
-                            Lock screen</a>
+                        <a class="dropdown-item" href="#"><i class="bx bx-lock-alt font-size-16 align-middle me-1"></i>
+                            Change Password</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#"><i
-                                class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
-                            Logout</a>
+                        <form id="logout" action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            <a href="#" class="dropdown-item text-danger"
+                                onclick="document.getElementById('logout').submit()">
+                                <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
+                                <span>Logout</span></a>
+                        </form>
                     </div>
                 </div>
 
